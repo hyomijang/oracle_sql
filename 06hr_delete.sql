@@ -1,0 +1,46 @@
+--delete
+--DELETE FROM table_name WHERE conditions;
+
+--(dept) 부서 테이블의 모두삭제한다.
+--delete 삭제시 rollback 가능 truncate 삭제시 rollback 불가
+SELECT * FROM user_tables;
+
+CREATE table depy
+as
+SELECT * FROM departments;
+
+SELECT * FROM depy;
+DELETE from depy;
+drop table depy;
+TRUNCATE table depy;
+rollback;
+
+DELETE from depy where depy.department_id = 30; 
+SELECT * FROM EMP01;
+
+CREATE table  EMP01(
+    EMPNO NUMBER(4) ,
+    ENAME VARCHAR2(10) NOT NULL,
+    JOB VARCHAR(9),
+    MGR NUMBER(4),
+    HIREDATE DATE NOT NULL,
+    SAL NUMBER(7,2) NOT NULL,
+    COMM NUMBER(7,2),
+    DEPTNO NUMBER(2) NOT NULL,
+    CONSTRAINT PK_EMP01_NO PRIMARY KEY(EMPNO)
+);
+
+
+INSERT INTO EMP01 VALUES (7369, 'SMITH', 'CLERK', 7836, DATE '1980-12-17', 800, NULL, 20);
+INSERT INTO EMP01 VALUES (7499, 'ALLEN', 'SALESMAN', 7369, DATE '1987-12-20', 1600, 300, 30);
+INSERT INTO EMP01 VALUES (7839, 'KING', 'PRESIDENT', NULL, DATE '1981-02-08', 5000, NULL, 10);
+SELECT * FROM EMP01;
+
+CREATE TABLE MEMBERS(
+    M_ID VARCHAR2(20) ,
+    M_NAME VARCHAR2(20) NOT NULL,
+    M_REGNO VARCHAR2(13) NOT NULL,
+    M_HP VARCHAR2(13) NOT NULL,
+    M_ADDRESS VARCHAR(100)NOT NULL,
+    CONSTRAINT m_id_pk PRIMARY KEY(M_ID)
+);
