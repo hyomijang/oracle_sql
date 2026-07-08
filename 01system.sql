@@ -36,3 +36,26 @@ grant CONNECT,RESOURCE to javauser;
 
 --접속 요청을 진행한다.
 
+--- 1.사용자 설정(아이디 :springuser pw: springuser , tablespace: firstData)
+ALTER SESSION SET "_ORACLE_SCRIPT"=true;
+
+CREATE user springuser identified by springuser
+DEFAULT TABLESPACE firstData
+TEMPORARY TABLESPACE temp;
+
+--2.사용자 권한설정(javauser에게 접속권한 , 테이블 curd기능부여)
+grant CONNECT,RESOURCE to springuser;
+
+
+--5.시퀀스 설정
+
+CREATE SEQUENCE EMP_SEQ
+START WITH 0
+INCREMENT BY 1
+MINVALUE 0
+MAXVALUE 100000
+NOCYCLE
+CACHE 2;
+
+
+
