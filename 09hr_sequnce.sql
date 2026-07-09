@@ -94,3 +94,11 @@ SELECT * FROM user_sequences;
 
 --dep_sep 삭제하시오
 drop Sequence dep_seq;
+
+select * from user_tables;
+select * from user_constraints;
+select * from user_cons_columns;
+SELECT * FROM user_sequences;
+SELECT * FROM user_indexes where table_name ='EMPLOYEES';
+SELECT * FROM user_ind_columns where table_name = 'EMPLOYEES';
+
